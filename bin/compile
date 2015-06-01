@@ -5,5 +5,8 @@
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-echo "=====> Writing out SOURCE_VERSION to .source_version ($SOURCE_VERSION)"
-echo $SOURCE_VERSION > $BUILD_DIR/.source_version
+# TODO: avoid hardcoding 'public' dir name; adjust for different app types.
+PUBLIC_DIR=$BUILD_DIR/public
+
+echo "=====> Writing out SOURCE_VERSION to $PUBLIC_DIR/.source_version ($SOURCE_VERSION)"
+echo $SOURCE_VERSION > $PUBLIC_DIR/.source_version
