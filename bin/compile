@@ -8,7 +8,7 @@ CACHE_DIR=$2
 # TODO: avoid hardcoding 'public' dir name; adjust for different app types.
 PUBLIC_DIR=$BUILD_DIR/public
 
-VERSION_FILE="$PUBLIC_DIR/source_version"
+VERSION_FILE="$PUBLIC_DIR/source_version.json"
 
 echo "=====> Writing out SOURCE_VERSION to $VERSION_FILE ($SOURCE_VERSION)"
-echo $SOURCE_VERSION > $VERSION_FILE
+echo "{ sha : \"${SOURCE_VERSION}\" }" > $VERSION_FILE
