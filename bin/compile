@@ -5,13 +5,25 @@
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-# TODO: avoid hardcoding 'public' dir name; adjust for different app types.
-PUBLIC_DIR=$BUILD_DIR/src
 
-BUILDINFO_FILE="$PUBLIC_DIR/build-info.json"
+if [ "$BUILDINFO_FILE" == "" ]; then
+  BUILDINFO_FILE="$BUILDINFO_FILE"
+else
+  # use leading dot to hide it
+  BUILDINFO_FILE=".build-info.json"
+fi
 
-echo "=====> Writing out build info to ${BUILDINFO_FILE}"
+if [ "$BUILDINFO_DIR" == "" ]; then
+  BUILDINFO_DIR=$BUILD_DIR/$BUILDINFO_DIR
+else
+  # default to root dir
+  BUILDINFO_DIR=$BUILD_DIR
+fi
+
+BUILDINFO_PATH="$BUILDINFO_DIR/$BUILDINFO_FILE"
+
+echo "=====> Writing out build info to ${BUILDINFO_PATH}"
 echo "{ \
 \"sha\" : \"${SOURCE_VERSION}\",\
 \"repo_url\" : \"${REPO_URL}/commits/${SOURCE_VERSION}\"\
-}" > ${BUILDINFO_FILE}
+}" > ${BUILDINFO_PATH}
