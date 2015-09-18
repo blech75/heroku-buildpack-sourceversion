@@ -6,7 +6,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 
 # TODO: avoid hardcoding 'public' dir name; adjust for different app types.
-PUBLIC_DIR=$BUILD_DIR/public
+PUBLIC_DIR=$BUILD_DIR/src
 
 BUILDINFO_FILE="$PUBLIC_DIR/build-info.json"
 
