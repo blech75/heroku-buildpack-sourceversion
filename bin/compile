@@ -9,14 +9,14 @@ CACHE_DIR=$2
 ENV_DIR=$3
 
 
-if [ "$BUILDINFO_FILE" == "" ]; then
+if [ "$BUILDINFO_FILE" != "" ]; then
   BUILDINFO_FILE="$BUILDINFO_FILE"
 else
   # use leading dot to hide it
   BUILDINFO_FILE=".build-info.json"
 fi
 
-if [ "$BUILDINFO_DIR" == "" ]; then
+if [ "$BUILDINFO_DIR" != "" ]; then
   BUILDINFO_DIR=$BUILD_DIR/$BUILDINFO_DIR
 else
   # default to root dir
