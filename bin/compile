@@ -28,7 +28,15 @@ export_env_dir() {
   fi
 }
 
-export_env_dir
+# export_env_dir
+
+# http://dncrews.com/tools/2014/03/21/heroku-user-env-changes/
+for KEY in BUILDINFO_FILE BUILDINFO_DIR; do
+  [ -f $ENV_DIR/$KEY ] && export "$KEY=$(cat $ENV_DIR/$KEY)"
+  [ -z "${!KEY}" ] && echo "You didn't set $KEY, and this is required." && exit 1
+done
+echo "HOORAY, you set the variables! BUILDINFO_FILE: $BUILDINFO_FILE; BUILDINFO_DIR: $BUILDINFO_DIR."
+
 
 echo BUILDINFO_FILE=$BUILDINFO_FILE
 
