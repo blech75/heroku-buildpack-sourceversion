@@ -8,6 +8,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
+env
 
 if [ "$BUILDINFO_FILE" != "" ]; then
   BUILDINFO_FILE="$BUILDINFO_FILE"
