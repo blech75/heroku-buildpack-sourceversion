@@ -29,12 +29,16 @@ export_env_dir() {
 
 export_env_dir
 
+echo BUILDINFO_FILE=$BUILDINFO_FILE
+
 if [ "$BUILDINFO_FILE" != "" ]; then
   BUILDINFO_FILE="$BUILDINFO_FILE"
 else
   # use leading dot to hide it
   BUILDINFO_FILE=".build-info.json"
 fi
+
+echo BUILDINFO_DIR=$BUILDINFO_DIR
 
 if [ "$BUILDINFO_DIR" != "" ]; then
   BUILDINFO_DIR=$BUILD_DIR/$BUILDINFO_DIR
